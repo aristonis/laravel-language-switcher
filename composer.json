@@ -2,6 +2,7 @@
     "name": "aristonis/laravel-language-switcher",
     "description": "auto detected user language and set it for application with manully option for user to slelect language",
     "license": "MIT",
+    "type": "laravel-package",
     "autoload": {
         "psr-4": {
             "Aristonis\\LaravelLanguageSwitcher\\": "src/"
@@ -13,5 +14,9 @@
             "email": "mekadalibrahem123@gmail.com"
         }
     ],
-    "require": {}
+    "require-dev": {
+        "orchestra/testbench": "^10.6"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
 }
