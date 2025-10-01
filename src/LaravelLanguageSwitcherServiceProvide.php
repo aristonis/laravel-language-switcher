@@ -18,6 +18,7 @@ class LaravelLanguageSwitcherServiceProvide extends ServiceProvider
         $this->publishConfig();
         $this->publishViews();
         $this->loadViews();
+        $this->loadRoutes();
 
         $this->loadViewComponentsAs('laravel-language-switcher', [
             'switcher' => Switcher::class,
@@ -29,17 +30,22 @@ class LaravelLanguageSwitcherServiceProvide extends ServiceProvider
             'language-switcher'
         );
     }
+    // loading  
+    public function loadRoutes()
+    {
+        $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
+    }
+    public function loadViews()
+    {
+
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'laravel-language-switcher');
+    }
+    // publishing 
     public function publishConfig()
     {
         $this->publishes([
             __DIR__ . '/../config/language-switcher.php' => config_path('language-switcher.php'),
         ], 'config');
-    }
-
-    public function loadViews()
-    {
-
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'laravel-language-switcher');
     }
     private function publishViews()
     {

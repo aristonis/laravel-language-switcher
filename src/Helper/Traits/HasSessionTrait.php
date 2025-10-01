@@ -16,6 +16,6 @@ trait HasSessionTrait
     }
     public static function  setLanguageToSession($lang)
     {
-        session([self::getLanguageSessionKey() => $lang]);
+        session()->put(self::getLanguageSessionKey(), $lang);
     }
 }

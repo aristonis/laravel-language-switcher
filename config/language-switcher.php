@@ -29,4 +29,11 @@ return [
      *  session key 
      */
     "session_key" => "__lang",
+    /**
+     * Routes
+     */
+    "route" => [
+        'prefix' => 'language-switcher',
+        'name' => 'language-switcher.'
+    ]
 ];
