@@ -24,4 +24,9 @@ return [
     'detectors' => [
         'browser' => \Aristonis\LaravelLanguageSwitcher\Detectors\BrowserLanguageDetector::class,
     ],
+
+    /**
+     *  session key 
+     */
+    "session_key" => "__lang",
 ];

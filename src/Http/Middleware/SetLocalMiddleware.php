@@ -5,6 +5,9 @@ namespace Aristonis\LaravelLanguageSwitcher\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Aristonis\LaravelLanguageSwitcher\Detectors\LanguageDetectorsFactory;
+use Aristonis\LaravelLanguageSwitcher\Helper\Helper;
+use PHPUnit\TextUI\Help;
+
 class SetLocalMiddleware
 {
     /**
@@ -13,8 +16,8 @@ class SetLocalMiddleware
     public function handle(Request $request, Closure $next)
     {
 
-        if (session()->has('locale')) {
-            app()->setLocale(session('locale'));
+        if (session()->has(Helper::getLanguageSessionKey())) {
+            app()->setLocale(Helper::getLanguageFromSession());
             return $next($request);
         }
         $detectorStrategies = config('language-switcher.detectors');
@@ -25,11 +28,11 @@ class SetLocalMiddleware
 
             if ($detector) {
                 $detectedLanguage = $detector->detect($request);
-               
+
 
                 if ($detectedLanguage) {
                     app()->setLocale($detectedLanguage);
-                    session(['locale' => $detectedLanguage]);
+                    Helper::setLanguageToSession($detectedLanguage);
                     return $next($request);
                 }
             }
