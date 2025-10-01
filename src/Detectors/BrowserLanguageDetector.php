@@ -13,7 +13,7 @@ class BrowserLanguageDetector implements LanguageDetectorInterface
     public function detect(Request $request): ?string
     {
       
-        $supportedLanguages = config('languageswitcher.language-switcher.supported_languages', config("languageswitcher.language-switcher.defaut"));
+        $supportedLanguages = config('language-switcher.supported_languages', config("language-switcher-switcher.defaut"));
 
         
         $browserLanguages = $request->getLanguages();

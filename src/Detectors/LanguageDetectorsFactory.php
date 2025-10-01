@@ -17,7 +17,7 @@ class LanguageDetectorsFactory
             return self::$instances[$name];
         }
 
-        $detectors = config('languageswitcher.language-switcher.detectors', []);
+        $detectors = config('language-switcher.detectors', []);
 
         if (!array_key_exists($name, $detectors)) {
             //    TODO : add throw Execption for NOT SUPPORT DETECTORS TYOE
