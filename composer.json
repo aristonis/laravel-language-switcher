@@ -3,7 +3,7 @@
     "description": "auto detected user language and set it for application with manully option for user to slelect language",
     "license": "MIT",
     "type": "laravel-package",
-    "version": "0.1.0",
+    "version": "1.0",
     "autoload": {
         "psr-4": {
             "Aristonis\\LaravelLanguageSwitcher\\": "src/"
